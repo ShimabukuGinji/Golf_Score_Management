@@ -3,15 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>メニュー画面</title>
-    <link href="css/commons.css" rel="stylesheet">
+    <link href="/css/commons.css" rel="stylesheet">
 </head>
 <body>
 <th:block th:insert="common/header"></th:block>
-<h1>メニュー画面</h1>
-<form action="output" method="POST">
-    名前を入力して下さい。<br/>
-    <input type="text" name="userName"/>
-    <button type="submit">送信</button>
-</form>
+<div id="menu">
+    <div class="flex">
+        <div class="main"><div class="child">98.2<br>平均スコア</div></div>
+        <div class="main"><div class="child">95<br>ベストスコア</div></div>
+        <div class="main"><div class="child">34<br>平均パット数</div></div>
+    </div>
+</div>
+<div>
+    <div class="caption"><p>直近5ラウンド</p></div>
+    <table>
+        <tbody>
+        <tr>
+            <td>沖縄カントリー</td>
+            <td>2024年5月1日</td>
+            <td>102</td>
+            <td>32</td>
+            <td><a class="detail_btn" href="">詳細</a></td>
+        </tr>
+        <tr>
+            <td>沖縄カントリー</td>
+            <td>2024年5月1日</td>
+            <td>102</td>
+            <td>32</td>
+            <td><a class="detail_btn" href="">詳細</a></td>
+        </tr>
+        <tr>
+            <td>沖縄カントリー</td>
+            <td>2024年5月1日</td>
+            <td>102</td>
+            <td>32</td>
+            <td><a class="detail_btn" href="">詳細</a></td>
+        </tr>
+        <tr>
+            <td>沖縄カントリー</td>
+            <td>2024年5月1日</td>
+            <td>102</td>
+            <td>32</td>
+            <td><a class="detail_btn" href="">詳細</a></td>
+        </tr>
+        <tr>
+            <td>沖縄カントリー</td>
+            <td>2024年5月1日</td>
+            <td>102</td>
+            <td>32</td>
+            <td><a class="detail_btn" href="">詳細</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="center">
+        <a class="basic-btn regist" href="Golf_Manager/insert">ラウンド履歴</a>
+        <a class="basic-btn regist" href="Golf_Manager/insert">ラウンド登録</a>
+    </div>
+</div>
 </body>
 </html>

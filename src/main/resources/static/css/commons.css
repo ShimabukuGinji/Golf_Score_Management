@@ -75,13 +75,6 @@ table {
   margin: auto;
   width: 80%;
   border: none;
-  table-layout: fixed;
-}
-
-table th {
-  background:#68a9eb;
-	font-weight: bold;
-	color:#fff;
 }
 
 table th,table td{
@@ -111,12 +104,14 @@ a {
 /** ヘッダー **/
 .header {
   display: flex;
+  position: relative;
   justify-content: space-between;
 }
 
 .user {
   display: flex;
-  margin: 10px 200px 0 0;
+  margin: 10px 50px 0px 0px;
+  font-size: 20px;
 }
 
 .site_logo {
@@ -144,10 +139,6 @@ a {
   width: 20px;
   vertical-align: middle;
   margin: 0 5px 5px 0;
-}
-
-hr {
-  width: 80%;
 }
 
 .form {
@@ -399,4 +390,27 @@ h1 a {
 
 .btn-area .btn {
   display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.main {
+  width: 33%;
+  height: 100px;
+  position: relative;
+}
+
+.child {
+  text-size:10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.margin {
+  margin: 10px;
 }
