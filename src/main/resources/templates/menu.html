@@ -18,46 +18,18 @@
     <div class="caption"><p>直近5ラウンド</p></div>
     <table>
         <tbody>
-        <tr>
-            <td>沖縄カントリー</td>
-            <td>2024年5月1日</td>
-            <td>102</td>
-            <td>32</td>
-            <td><a class="detail_btn" href="">詳細</a></td>
-        </tr>
-        <tr>
-            <td>沖縄カントリー</td>
-            <td>2024年5月1日</td>
-            <td>102</td>
-            <td>32</td>
-            <td><a class="detail_btn" href="">詳細</a></td>
-        </tr>
-        <tr>
-            <td>沖縄カントリー</td>
-            <td>2024年5月1日</td>
-            <td>102</td>
-            <td>32</td>
-            <td><a class="detail_btn" href="">詳細</a></td>
-        </tr>
-        <tr>
-            <td>沖縄カントリー</td>
-            <td>2024年5月1日</td>
-            <td>102</td>
-            <td>32</td>
-            <td><a class="detail_btn" href="">詳細</a></td>
-        </tr>
-        <tr>
-            <td>沖縄カントリー</td>
-            <td>2024年5月1日</td>
-            <td>102</td>
-            <td>32</td>
+        <tr th:each="product : ${rounds}" >
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.playDate}"></td>
+            <td th:text="${product.score}"></td>
+            <td th:text="${product.patts}"></td>
             <td><a class="detail_btn" href="">詳細</a></td>
         </tr>
         </tbody>
     </table>
     <div class="center">
-        <a class="basic-btn regist" href="Golf_Manager/insert">ラウンド履歴</a>
-        <a class="basic-btn regist" href="Golf_Manager/insert">ラウンド登録</a>
+        <a class="basic-btn regist" href="/Golf_Manager/user/detail">ラウンド履歴</a>
+        <a class="basic-btn regist" href="/Golf_Manager/user/insert">ラウンド登録</a>
     </div>
 </div>
 </body>

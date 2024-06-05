@@ -274,10 +274,10 @@ a {
 	border-radius: 0;
 	color: inherit;
 	font-family: inherit;
-	font-size: 13px;
+	font-size: 15px;
 	padding: 0.4em 0.8em;
-	width: 50%;
-  margin: 4px;
+	width: 80%;
+  　margin: 4px;
 }
 
 .base-text:focus {
@@ -413,4 +413,18 @@ h1 a {
 
 .margin {
   margin: 10px;
+}
+
+.play-date {
+  width: 150px;
+  height: 50px;
+}
+
+table {
+  table-layout: fixed;
+}
+
+.score {
+  width: 20px;
+  height: 20px;
 }
