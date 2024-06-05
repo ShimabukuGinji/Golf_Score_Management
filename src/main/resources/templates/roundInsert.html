@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:width="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>メニュー画面</title>
+    <link href="/css/commons.css" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="common/header"></th:block>
+<h1>ラウンド登録</h1>
+<form action="/insert" method="post" th:object="${RoundFrom}">
+    <select tabindex=1 th:field="*{playDateYear}" name="year">
+        <option th:each="year:${years}" th:value="${year}" th:text="${year}"></option>
+    </select>
+    年
+    <select tabindex=1 th:field="*{playDateMonth}" name="month">
+        <option th:each="month:${months}" th:value="${month}" th:text="${month}"></option>
+    </select>
+    月
+    <select tabindex=1 th:field="*{playDateDay}" name="day">
+        <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>
+    </select>
+    日
+    <br>
+    <label class="required">コース名</label>
+    <select tabindex=1 name="rounds">
+        <option th:each="course:${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+    </select>
+    <p>IN</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="70px">ホール</th>
+                <th width="70px">Hole1</th>
+                <th width="70px">Hole2</th>
+                <th width="70px">Hole3</th>
+                <th width="70px">Hole4</th>
+                <th width="70px">Hole5</th>
+                <th width="70px">Hole6</th>
+                <th width="70px">Hole7</th>
+                <th width="70px">Hole8</th>
+                <th width="70px">Hole9</th>
+                <th width="70px">IN</th>
+                <th width="70px"></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Par</td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+        </tr>
+        <tr>
+            <td>スコア</td>
+            <td><input tabindex=2 class="score" type="text"></td>
+            <td><input tabindex=3 class="score" type="text"></td>
+            <td><input tabindex=4 class="score" type="text"></td>
+            <td><input tabindex=5 class="score" type="text"></td>
+            <td><input tabindex=6 class="score" type="text"></td>
+            <td><input tabindex=7 class="score" type="text"></td>
+            <td><input tabindex=8 class="score" type="text"></td>
+            <td><input tabindex=9 class="score" type="text"></td>
+            <td><input tabindex=10 class="score" type="text"></td>
+            <td><input tabindex=11 class="score" type="text"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>パット</td>
+            <td><input tabindex=2 class="score" type="text"></td>
+            <td><input tabindex=3 class="score" type="text"></td>
+            <td><input tabindex=4 class="score" type="text"></td>
+            <td><input tabindex=5 class="score" type="text"></td>
+            <td><input tabindex=6 class="score" type="text"></td>
+            <td><input tabindex=7 class="score" type="text"></td>
+            <td><input tabindex=8 class="score" type="text"></td>
+            <td><input tabindex=9 class="score" type="text"></td>
+            <td><input tabindex=10 class="score" type="text"></td>
+            <td><input tabindex=11 class="score" type="text"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>バンカー</td>
+            <td><input tabindex=2 class="score" type="text"></td>
+            <td><input tabindex=3 class="score" type="text"></td>
+            <td><input tabindex=4 class="score" type="text"></td>
+            <td><input tabindex=5 class="score" type="text"></td>
+            <td><input tabindex=6 class="score" type="text"></td>
+            <td><input tabindex=7 class="score" type="text"></td>
+            <td><input tabindex=8 class="score" type="text"></td>
+            <td><input tabindex=9 class="score" type="text"></td>
+            <td><input tabindex=10 class="score" type="text"></td>
+            <td><input tabindex=11 class="score" type="text"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>WH</td>
+            <td><input tabindex=2 class="score" type="text"></td>
+            <td><input tabindex=3 class="score" type="text"></td>
+            <td><input tabindex=4 class="score" type="text"></td>
+            <td><input tabindex=5 class="score" type="text"></td>
+            <td><input tabindex=6 class="score" type="text"></td>
+            <td><input tabindex=7 class="score" type="text"></td>
+            <td><input tabindex=8 class="score" type="text"></td>
+            <td><input tabindex=9 class="score" type="text"></td>
+            <td><input tabindex=10 class="score" type="text"></td>
+            <td><input tabindex=11 class="score" type="text"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>PA</td>
+            <td><input tabindex=2 class="score" type="text"></td>
+            <td><input tabindex=3 class="score" type="text"></td>
+            <td><input tabindex=4 class="score" type="text"></td>
+            <td><input tabindex=5 class="score" type="text"></td>
+            <td><input tabindex=6 class="score" type="text"></td>
+            <td><input tabindex=7 class="score" type="text"></td>
+            <td><input tabindex=8 class="score" type="text"></td>
+            <td><input tabindex=9 class="score" type="text"></td>
+            <td><input tabindex=10 class="score" type="text"></td>
+            <td><input tabindex=11 class="score" type="text"></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <p>OUT</p>
+    <table>
+        <thead>
+        <tr>
+            <th width="70px"></th>
+            <th width="70px">Hole10</th>
+            <th width="70px">Hole11</th>
+            <th width="70px">Hole12</th>
+            <th width="70px">Hole13</th>
+            <th width="70px">Hole14</th>
+            <th width="70px">Hole15</th>
+            <th width="70px">Hole16</th>
+            <th width="70px">Hole17</th>
+            <th width="70px">Hole18</th>
+            <th width="70px">OUT</th>
+            <th width="70px">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Par</td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+            <td><span class="score"></span></td>
+        </tr>
+        <tr>
+            <td>スコア</td>
+            <td><input tabindex=12 class="score" type="text"></td>
+            <td><input tabindex=13 class="score" type="text"></td>
+            <td><input tabindex=14 class="score" type="text"></td>
+            <td><input tabindex=15 class="score" type="text"></td>
+            <td><input tabindex=16 class="score" type="text"></td>
+            <td><input tabindex=17 class="score" type="text"></td>
+            <td><input tabindex=18 class="score" type="text"></td>
+            <td><input tabindex=19 class="score" type="text"></td>
+            <td><input tabindex=20 class="score" type="text"></td>
+            <td><input tabindex=21 class="score" type="text"></td>
+            <td><input tabindex=22 class="score" type="text"></td>
+        </tr>
+        <tr>
+            <td>パット</td>
+            <td><input tabindex=12 class="score" type="text"></td>
+            <td><input tabindex=13 class="score" type="text"></td>
+            <td><input tabindex=14 class="score" type="text"></td>
+            <td><input tabindex=15 class="score" type="text"></td>
+            <td><input tabindex=16 class="score" type="text"></td>
+            <td><input tabindex=17 class="score" type="text"></td>
+            <td><input tabindex=18 class="score" type="text"></td>
+            <td><input tabindex=19 class="score" type="text"></td>
+            <td><input tabindex=20 class="score" type="text"></td>
+            <td><input tabindex=21 class="score" type="text"></td>
+            <td><input tabindex=22 class="score" type="text"></td>
+        </tr>
+        <tr>
+            <td>バンカー</td>
+            <td><input tabindex=12 class="score" type="text"></td>
+            <td><input tabindex=13 class="score" type="text"></td>
+            <td><input tabindex=14 class="score" type="text"></td>
+            <td><input tabindex=15 class="score" type="text"></td>
+            <td><input tabindex=16 class="score" type="text"></td>
+            <td><input tabindex=17 class="score" type="text"></td>
+            <td><input tabindex=18 class="score" type="text"></td>
+            <td><input tabindex=19 class="score" type="text"></td>
+            <td><input tabindex=20 class="score" type="text"></td>
+            <td><input tabindex=21 class="score" type="text"></td>
+            <td><input tabindex=22 class="score" type="text"></td>
+        </tr>
+        <tr>
+            <td>WH</td>
+            <td><input tabindex=12 class="score" type="text"></td>
+            <td><input tabindex=13 class="score" type="text"></td>
+            <td><input tabindex=14 class="score" type="text"></td>
+            <td><input tabindex=15 class="score" type="text"></td>
+            <td><input tabindex=16 class="score" type="text"></td>
+            <td><input tabindex=17 class="score" type="text"></td>
+            <td><input tabindex=18 class="score" type="text"></td>
+            <td><input tabindex=19 class="score" type="text"></td>
+            <td><input tabindex=20 class="score" type="text"></td>
+            <td><input tabindex=21 class="score" type="text"></td>
+            <td><input tabindex=22 class="score" type="text"></td>
+        </tr>
+        <tr>
+            <td>PA</td>
+            <td><input tabindex=12 class="score" type="text"></td>
+            <td><input tabindex=13 class="score" type="text"></td>
+            <td><input tabindex=14 class="score" type="text"></td>
+            <td><input tabindex=15 class="score" type="text"></td>
+            <td><input tabindex=16 class="score" type="text"></td>
+            <td><input tabindex=17 class="score" type="text"></td>
+            <td><input tabindex=18 class="score" type="text"></td>
+            <td><input tabindex=19 class="score" type="text"></td>
+            <td><input tabindex=20 class="score" type="text"></td>
+            <td><input tabindex=21 class="score" type="text"></td>
+            <td><input tabindex=22 class="score" type="text"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <label>メモ欄</label><br>
+    <textarea th:field="*{note}" name="description" class="base-text"></textarea>
+</form>
+</body>
+</html>
