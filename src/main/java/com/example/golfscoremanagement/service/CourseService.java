@@ -22,4 +22,9 @@ public class CourseService implements ICourseService {
     public List<Course> findAll(){
         return courseRepository.findAll();
     }
+
+    @Override
+    public Course findById(int id){
+        return courseRepository.findById(id);
+    }
 }

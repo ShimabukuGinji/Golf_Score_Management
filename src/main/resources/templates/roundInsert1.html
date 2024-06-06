@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:width="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>メニュー画面</title>
+    <link href="/css/commons.css" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="common/header"></th:block>
+<h1>ラウンド登録</h1>
+<form action="" method="post" th:object="${RoundFrom1}">
+    <select tabindex=1 th:field="*{playDateYear}" name="year">
+        <option th:each="year:${years}" th:value="${year}" th:text="${year}"></option>
+    </select>
+    年
+    <select tabindex=1 th:field="*{playDateMonth}" name="month">
+        <option th:each="month:${months}" th:value="${month}" th:text="${month}"></option>
+    </select>
+    月
+    <select tabindex=1 th:field="*{playDateDay}" name="day">
+        <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>
+    </select>
+    日
+    <br>
+    <label class="required">コース名</label>
+    <select th:field="*{courseId}" tabindex=1 name="rounds">
+        <option th:each="course:${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+    </select>
+    <br>
+    <div class="btns">
+        <button type="submit" class="basic-btn">次へ</button>
+        <input type="button" onclick="back()" value="戻る" class="cancel-btn">
+    </div>
+</form>
+</body>
+</html>

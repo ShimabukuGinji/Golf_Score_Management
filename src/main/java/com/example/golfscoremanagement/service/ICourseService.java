@@ -9,4 +9,6 @@ import java.util.List;
 @Service
 public interface ICourseService {
     List<Course> findAll();
+
+    Course findById(int id);
 }

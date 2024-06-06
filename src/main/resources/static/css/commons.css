@@ -45,7 +45,7 @@ input[readonly] {
 
 .error {
   color: red;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 a.btn {
@@ -276,7 +276,7 @@ a {
 	font-family: inherit;
 	font-size: 15px;
 	padding: 0.4em 0.8em;
-	width: 80%;
+	width: 100%;
   　margin: 4px;
 }
 
@@ -424,7 +424,7 @@ table {
   table-layout: fixed;
 }
 
-.score {
+.round {
   width: 20px;
   height: 20px;
 }

@@ -24,4 +24,13 @@ public class CourseRepository implements ICourseRepository {
         return jdbcTemplate.query("SELECT * FROM courses ORDER BY id",
                 new DataClassRowMapper<>(Course.class));
     }
+
+    @Override
+    public Course findById(int id){
+        var param = new MapSqlParameterSource();
+        param.addValue("id", id);
+        var list = jdbcTemplate.query("SELECT * FROM courses WHERE id = :id ORDER BY id",
+                param, new DataClassRowMapper<>(Course.class));
+        return list.isEmpty() ? null : list.get(0);
+    }
 }

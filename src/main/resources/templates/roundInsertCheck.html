@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>メニュー画面</title>
+    <link href="/css/commons.css" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="common/header"></th:block>
+<h1>ラウンド登録確認</h1>
+<form action="" method="post">
+    <p>コース：[[ ${course.name} ]]</p>
+    <p>IN</p>
+    <table>
+        <thead>
+        <tr>
+            <th th:each="hole:${holeNo1}" th:text="${hole}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Par</td>
+            <td><span class="round" id="par_hole1">[[ ${course.parHole1} ]]</span></td>
+            <td><span class="round" id="par_hole2">[[ ${course.parHole2} ]]</span></td>
+            <td><span class="round" id="par_hole3">[[ ${course.parHole3} ]]</span></td>
+            <td><span class="round" id="par_hole4">[[ ${course.parHole4} ]]</span></td>
+            <td><span class="round" id="par_hole5">[[ ${course.parHole5} ]]</span></td>
+            <td><span class="round" id="par_hole6">[[ ${course.parHole6} ]]</span></td>
+            <td><span class="round" id="par_hole7">[[ ${course.parHole7} ]]</span></td>
+            <td><span class="round" id="par_hole8">[[ ${course.parHole8} ]]</span></td>
+            <td><span class="round" id="par_hole9">[[ ${course.parHole9} ]]</span></td>
+            <td><span class="round" id="par_all1">36</span></td>
+            <td><span class="round"></span></td>
+        </tr>
+        <tr>
+            <td>スコア</td>
+            <th th:each="round:${rounds1}" th:text="${round.score}"></th>
+            <td><span id="score1-9" th:text="${score1-9}"></span></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>パット</td>
+            <th th:each="round:${rounds1}" th:text="${round.patts}"></th>
+            <td><span id="pat1-9" th:text="${pat1-9}"></span></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <p>OUT</p>
+    <table>
+        <thead>
+        <tr>
+            <th th:each="hole:${holeNo1}" th:text="${hole}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Par</td>
+            <td><span class="round" id="par_hole10">[[ ${course.parHole10} ]]</span></td>
+            <td><span class="round" id="par_hole11">[[ ${course.parHole11} ]]</span></td>
+            <td><span class="round" id="par_hole12">[[ ${course.parHole12} ]]</span></td>
+            <td><span class="round" id="par_hole13">[[ ${course.parHole13} ]]</span></td>
+            <td><span class="round" id="par_hole14">[[ ${course.parHole14} ]]</span></td>
+            <td><span class="round" id="par_hole15">[[ ${course.parHole15} ]]</span></td>
+            <td><span class="round" id="par_hole16">[[ ${course.parHole16} ]]</span></td>
+            <td><span class="round" id="par_hole17">[[ ${course.parHole17} ]]</span></td>
+            <td><span class="round" id="par_hole18">[[ ${course.parHole18} ]]</span></td>
+            <td><span class="round" id="par_all2"></span>36</td>
+            <td><span class="round" id="par_all"></span>72</td>
+        </tr>
+        <tr>
+            <td>スコア</td>
+            <th th:each="round:${rounds2}" th:text="${round.score}"></th>
+            <td><span id="score10-18" th:text="${score10-18}"></span></td>
+            <td><span id="score" th:text="${score}"></span></td>
+        </tr>
+        <tr>
+            <td>パット</td>
+            <th th:each="round:${rounds2}" th:text="${round.patts}"></th>
+            <td><span id="pat10-18" th:text="${pat10-18}"></span></td>
+            <td><span id="pat" th:text="${pat}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="btns">
+        <button type="button" onclick="openModal()" class="basic-btn">登録</button>
+        <input type="button" onclick="back()" value="戻る" class="cancel-btn">
+    </div>
+    <div id="modal">
+        <p class="modal-message">登録しますか？</p>
+        <div class="btns">
+            <button type="submit" name="insert" id="register-btn" class="basic-btn">登録</button>
+            <button type="button" onclick="closeModal()" class="cancel-btn">キャンセル</button>
+        </div>
+    </div>
+</form>
+<div id="fadeLayer"></div>
+<script src="/js/commons.js"></script>
+</body>
+</html>
