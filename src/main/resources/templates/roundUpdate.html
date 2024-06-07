@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>メニュー画面</title>
@@ -8,14 +8,30 @@
 <body>
 <th:block th:insert="common/header"></th:block>
 <h1>ラウンド登録</h1>
-<form th:action="@{__${course.id}__/check}" method="post" th:object="${RoundFrom2}">
-    <p>コース：[[ ${course.name} ]]</p>
-    <p>IN　<span class="error">[[ ${error} ]]</span></p>
+<form action="" method="post" th:object="${RoundFrom}">
+    <select tabindex=1 th:field="*{playDateYear}" name="year">
+        <option th:each="year:${years}" th:value="${year}" th:text="${year}"></option>
+    </select>
+    年
+    <select tabindex=1 th:field="*{playDateMonth}" name="month">
+        <option th:each="month:${months}" th:value="${month}" th:text="${month}"></option>
+    </select>
+    月
+    <select tabindex=1 th:field="*{playDateDay}" name="day">
+        <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>
+    </select>
+    日
+    <br>
+    <label class="required">コース名</label>
+    <select id="select" th:field="*{courseId}" tabindex=1 name="rounds">
+        <option th:each="course:${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+    </select>
+    <div class="caption"><p>IN　<span class="error">[[ ${error} ]]</span></p></div>
     <table>
         <thead>
-            <tr>
-                <th th:each="hole:${holeNo1}" th:text="${hole}"></th>
-            </tr>
+        <tr>
+            <th th:each="hole:${holeNo1}" th:text="${hole}"></th>
+        </tr>
         </thead>
         <tbody>
         <tr>
@@ -43,7 +59,7 @@
             <td><input tabindex=8 class="round" type="text" id="score7" th:field="*{scoreHole7}"></td>
             <td><input tabindex=9 class="round" type="text" id="score8" th:field="*{scoreHole8}"></td>
             <td><input tabindex=10 class="round" type="text" id="score9" th:field="*{scoreHole9}"></td>
-            <td><span id="score1-9" th:field="*{score1_9}"></span></td>
+            <td><span id="scoreIn" th:field="*{scoreIn}"></span></td>
             <td></td>
         </tr>
         <tr>
@@ -57,13 +73,13 @@
             <td><input tabindex=8 class="round" type="text" id="pat7" th:field="*{patHole7}"></td>
             <td><input tabindex=9 class="round" type="text" id="pat8" th:field="*{patHole8}"></td>
             <td><input tabindex=10 class="round" type="text" id="pat9" th:field="*{patHole9}"></td>
-            <td><span id="pat1-9" th:field="*{pat1_9}"></span></td>
+            <td><span id="patIn" th:field="*{patIn}"></span></td>
             <td></td>
         </tr>
         </tbody>
     </table>
     <br>
-    <p>OUT</p>
+    <div class="caption"><p>OUT</p></div>
     <table>
         <thead>
         <tr>
@@ -96,7 +112,7 @@
             <td><input tabindex=18 class="round" type="text" id="score16" th:field="*{scoreHole16}"></td>
             <td><input tabindex=19 class="round" type="text" id="score17" th:field="*{scoreHole17}"></td>
             <td><input tabindex=20 class="round" type="text" id="score18" th:field="*{scoreHole18}"></td>
-            <td><span id="score10-18" th:field="*{score10_18}"></span></td>
+            <td><span id="scoreOut" th:field="*{scoreOut}"></span></td>
             <td><span id="score" th:field="*{score}"></span></td>
         </tr>
         <tr>
@@ -110,7 +126,7 @@
             <td><input tabindex=18 class="round" type="text" id="pat16" th:field="*{patHole16}"></td>
             <td><input tabindex=19 class="round" type="text" id="pat17" th:field="*{patHole17}"></td>
             <td><input tabindex=20 class="round" type="text" id="pat18" th:field="*{patHole18}"></td>
-            <td><span id="pat10-18" th:field="*{pat10_18}"></span></td>
+            <td><span id="patOut" th:field="*{patOut}"></span></td>
             <td><span id="pat" th:field="*{pat}"></span></td>
         </tr>
         </tbody>
@@ -120,8 +136,15 @@
     <label>メモ欄</label><br>
     <textarea th:field="*{note}" name="description" class="base-text"></textarea>
     <div class="btns">
-        <button type="submit" class="basic-btn">次へ</button>
+        <button type="button" onclick="openModal()" class="basic-btn">登録</button>
         <input type="button" onclick="back()" value="戻る" class="cancel-btn">
+    </div>
+    <div id="modal">
+        <p class="modal-message">登録しますか？</p>
+        <div class="btns">
+            <button type="submit" name="insert" id="register-btn" class="basic-btn">登録</button>
+            <button type="button" onclick="closeModal()" class="cancel-btn">キャンセル</button>
+        </div>
     </div>
 </form>
 <div id="fadeLayer"></div>

@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,30 +30,38 @@ public class LoginController {
         return "index";
     }
 
-    @PostMapping()
-    public String login() {
-        return "redirect:/index";
+    @PostMapping("Golf_Manager/index")
+    public String login(@Validated @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model){
+        //バリデーション
+        if (bindingResult.hasErrors()) {
+            return "index";
+        }
+        var user = userService.findLogin(loginForm.getLoginId(), loginForm.getPassword());
+        if (user != null) {
+            session.setAttribute("user", user);
+            return "redirect:/Golf_Manager/user/menu";
+        }
+        model.addAttribute("error", "IDまたはパスワードが不正です");
+        return "index";
     }
 
     @GetMapping("Golf_Manager/user/menu")
     public String UserMenu(Model model) {
-        var user = userService.findAll();
-        session.invalidate();
-        session.setAttribute("user", user.get(1));
-        var rounds = roundService.findMenu(findUserId(session.getAttribute("user")));
-        model.addAttribute("rounds", rounds);
+        if(session.getAttribute("user") == null) {
+            return "redirect:/Golf_Manager/index";
+        }
+        model.addAttribute("rounds", roundService.findMenu(findUserId(session.getAttribute("user"))));
+        model.addAttribute("menu", roundService.findMenuScore(findUserId(session.getAttribute("user"))));
         return "menu";
     }
 
-//    @GetMapping("Golf_Manager/admin/menu")
-//    public String AdminMenu() {
-//        var user = userService.findAll();
-//        session.invalidate();
-//        session.setAttribute("user", user.get(0));
-//        return "menu";
-//    }
+    @PostMapping("/logout")
+    public String logout(@ModelAttribute("loginForm") LoginForm loginForm) {
+        session.invalidate();
+        return "redirect:/Golf_Manager/index";
+    }
 
-    private int findUserId(Object user) {
+    public int findUserId(Object user) {
         var users = userService.findAll();
         for (var target : users) {
             if(target.equals(user)){

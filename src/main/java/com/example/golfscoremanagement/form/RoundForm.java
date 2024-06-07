@@ -1,6 +1,9 @@
 package com.example.golfscoremanagement.form;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 @Data
@@ -21,121 +24,157 @@ public class RoundForm {
     private String courseId;
 
     //スコア
-    @NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole1;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole2;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole3;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole4;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole5;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole6;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole7;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole8;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole9;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole10;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole11;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole12;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole13;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole14;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole15;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole16;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole17;
 
-    //@NotEmpty
+    @NotNull
+    @Positive
     private String scoreHole18;
 
-    private String score1_9;
-    private String score10_18;
+    private String scoreIn;
+    private String scoreOut;
     private String score;
 
     //パット
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole1;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole2;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole3;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole4;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole5;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole6;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole7;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole8;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole9;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole10;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole11;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole12;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole13;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole14;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole15;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole16;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole17;
 
-    //@NotEmpty
+    @NotNull
+    @PositiveOrZero
     private String patHole18;
 
-    private String pat1_9;
-    private String pat10_18;
+    private String patIn;
+    private String patOut;
     private String pat;
 
     //メモ・備考

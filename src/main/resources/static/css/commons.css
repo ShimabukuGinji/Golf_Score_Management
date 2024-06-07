@@ -80,6 +80,7 @@ table {
 table th,table td{
   text-align: center;
   border: none;
+  min-width: 50px;
 }
 
 table tr:nth-child(odd){
@@ -94,6 +95,12 @@ table tr:nth-child(odd){
 
 .detail_btn:hover {
   background-color:#417ebb;
+}
+
+.detaily_btn {
+  background-color:#004a94;
+  display: block;       /* リンクをブロックレベル化して表示 */
+  padding: 5px 10px 5px 10px;
 }
 
 a {
@@ -129,6 +136,28 @@ a {
   cursor: pointer;
   color: white;
   margin: 10px;
+}
+
+.customise-btn {
+  border: none;
+  border-radius: 5px;
+  background-color: graywhite;
+  padding: auto;
+  line-height: 2;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  margin: 10px;
+}
+
+.customise-btn:hover {
+  background-color:;
+}
+
+.customise-btn img {
+  width: 20px;
+  vertical-align: middle;
+  margin: 0 5px 5px 0;
 }
 
 .custom-btn:hover {
@@ -231,7 +260,7 @@ a {
 /** ログイン画面 **/
 .login-form {
   width: 400px;
-  height: 350px;
+  height: 420px;
   position: absolute;
 	top: 50%;
 	left: 50%;
@@ -411,6 +440,14 @@ h1 a {
   text-align: center;
 }
 
+.best {
+  font-size: 30px;
+}
+
+.avg {
+  font-size: 20px;
+}
+
 .margin {
   margin: 10px;
 }
@@ -427,4 +464,18 @@ table {
 .round {
   width: 20px;
   height: 20px;
+}
+
+.caption {
+  width: 80%;
+  margin: auto;
+}
+
+.search {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#borderLine {
+  width: 80%;
 }

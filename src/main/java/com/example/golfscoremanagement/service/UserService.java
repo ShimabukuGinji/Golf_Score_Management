@@ -19,4 +19,10 @@ public class UserService implements IUserService {
     public List<User> findAll(){
         return userRepository.findAll();
     }
+
+    @Override
+    public User findLogin(String loginId, String loginPass){
+        var user = userRepository.findLogin(loginId, loginPass);
+        return user;
+    }
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>メニュー画面</title>
+    <link href="/css/commons.css" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="common/header"></th:block>
+<div>
+    <form method="get" action="round-all/Search" class="search-form" th:object="${SearchForm}">
+        <div class="search">
+            <label>コース検索：</label>
+            <select name="search" id="search" >
+                <option th:each="course:${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+            </select>
+        </div>
+        <div class="search">
+            <select name="order">
+                <option value="0">並び替え</option>
+                <option value="1">コース名：昇順</option>
+                <option value="2">コース名：降順</option>
+                <option value="3">日付：昇順</option>
+                <option value="4">日付：降順</option>
+                <option value="5">スコア：昇順</option>
+                <option value="6">スコア：降順</option>
+                <option value="7">パット：昇順</option>
+                <option value="8">パット：降順</option>
+            </select>
+        </div>
+        <div class="search">
+            <input type="submit" value="決定">
+        </div>
+    </form>
+    <br>
+    <table width="80%">
+        <thead>
+        <tr>
+            <th width="30%">コース名</th>
+            <th width="20%">プレイ日</th>
+            <th width="15%">スコア</th>
+            <th width="15%">パット数</th>
+            <th width="20%">ラウンド情報</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${rounds}" >
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.playDate}"></td>
+            <td th:text="${product.score}"></td>
+            <td th:text="${product.patts}"></td>
+            <td><a class="detail_btn" th:href="@{detail/__${product.id}__}">詳細</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="btns">
+        <input type="button" onclick="back()" value="戻る" class="cancel-btn">
+    </div>
+</div>
+<script src="/js/commons.js"></script>
+</body>
+</html>

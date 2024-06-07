@@ -22,4 +22,15 @@ public class UserRepository implements IUserRepository {
         return jdbcTemplate.query("SELECT * FROM users ORDER BY id",
             new DataClassRowMapper<>(User.class));
     }
+
+    @Override
+    public User findLogin(String loginId, String loginPass) {
+        var param = new MapSqlParameterSource();
+        param.addValue("ID", loginId);
+        param.addValue("pass", loginPass);
+        var list = jdbcTemplate.query("SELECT * FROM users WHERE login_id = :ID AND password = :pass ORDER BY id;",
+                param,
+                new DataClassRowMapper<>(User.class));
+        return list.isEmpty() ? null : list.get(0);
+    }
 }

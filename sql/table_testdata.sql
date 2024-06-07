@@ -39,7 +39,6 @@ CREATE TABLE scores(
     , user_id INT NOT NULL
     , play_date DATE
     , course_id INT NOT NULL
-    , hole_score_id INT NOT NULL
     , note VARCHAR(2000)
 );
 
@@ -253,18 +252,18 @@ VALUES
 , ('サンライズビーチパーク', 'sesoko', 72, 5, 3, 4, 4, 5, 3, 4, 4, 4, 3, 4, 4, 5, 5, 4, 3, 3, 4)
 , ('シーサイドリゾートカントリー', 'sesoko', 72, 4, 5, 4, 4, 4, 4, 3, 3, 5, 3, 4, 5, 4, 4, 4, 4, 5, 3);
 
-INSERT INTO scores (user_id, play_date, course_id, hole_score_id, note)
+INSERT INTO scores (user_id, play_date, course_id, note)
 VALUES 
-(1, '2023-06-01', 1, 1, 'Great shot on the first hole!')
-, (1, '2023-09-11', 4, 2, 'Missed the green on the second hole')
-, (1, '2023-10-04', 5, 3, 'Hole-in-one on the third hole!')
-, (1, '2023-11-25', 2, 4, 'Played a great game of golf today!')
-, (1, '2024-01-07', 5, 5, 'Lost my ball in the water on the fifth hole')
-, (1, '2024-01-30', 11, 6, 'Finally broke my score record on the sixth hole!')
-, (1, '2024-02-10', 8, 7, 'Tough course today, but I hung in there')
-, (1, '2024-05-15', 1, 8, 'Played with my friend today and we had a great time!')
-, (1, '2024-05-22', 17, 9, 'My friends swing is really improving!')
-, (1, '2024-06-02', 20, 10, 'Golfing is my favorite way to relax');
+(2, '2023-06-01', 1, 'Great shot on the first hole!')
+, (2, '2023-09-11', 4, 'Missed the green on the second hole')
+, (2, '2023-10-04', 5, 'Hole-in-one on the third hole!')
+, (2, '2023-11-25', 2, 'Played a great game of golf today!')
+, (2, '2024-01-07', 5, 'Lost my ball in the water on the fifth hole')
+, (2, '2024-01-30', 11, 'Finally broke my score record on the sixth hole!')
+, (2, '2024-02-10', 8, 'Tough course today, but I hung in there')
+, (2, '2024-05-15', 1, 'Played with my friend today and we had a great time!')
+, (2, '2024-05-22', 17, 'My friends swing is really improving!')
+, (2, '2024-06-02', 20, 'Golfing is my favorite way to relax');
 
 INSERT INTO hole1 (score, patts, bunker, water, ob, pena) 
 VALUES 

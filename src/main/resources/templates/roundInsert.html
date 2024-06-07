@@ -26,7 +26,7 @@
     <select id="select" th:field="*{courseId}" tabindex=1 name="rounds">
         <option th:each="course:${courses}" th:value="${course.id}" th:text="${course.name}"></option>
     </select>
-    <p>IN　<span class="error">[[ ${error} ]]</span></p>
+    <div class="caption"><p>IN　<span class="error">[[ ${error} ]]</span></p></div>
     <table>
         <thead>
         <tr>
@@ -59,7 +59,7 @@
             <td><input tabindex=8 class="round" type="text" id="score7" th:field="*{scoreHole7}"></td>
             <td><input tabindex=9 class="round" type="text" id="score8" th:field="*{scoreHole8}"></td>
             <td><input tabindex=10 class="round" type="text" id="score9" th:field="*{scoreHole9}"></td>
-            <td><span id="score1-9" th:field="*{score1_9}"></span></td>
+            <td><span id="scoreIn" th:field="*{scoreIn}"></span></td>
             <td></td>
         </tr>
         <tr>
@@ -73,13 +73,13 @@
             <td><input tabindex=8 class="round" type="text" id="pat7" th:field="*{patHole7}"></td>
             <td><input tabindex=9 class="round" type="text" id="pat8" th:field="*{patHole8}"></td>
             <td><input tabindex=10 class="round" type="text" id="pat9" th:field="*{patHole9}"></td>
-            <td><span id="pat1-9" th:field="*{pat1_9}"></span></td>
+            <td><span id="patIn" th:field="*{patIn}"></span></td>
             <td></td>
         </tr>
         </tbody>
     </table>
     <br>
-    <p>OUT</p>
+    <div class="caption"><p>OUT</p></div>
     <table>
         <thead>
         <tr>
@@ -112,7 +112,7 @@
             <td><input tabindex=18 class="round" type="text" id="score16" th:field="*{scoreHole16}"></td>
             <td><input tabindex=19 class="round" type="text" id="score17" th:field="*{scoreHole17}"></td>
             <td><input tabindex=20 class="round" type="text" id="score18" th:field="*{scoreHole18}"></td>
-            <td><span id="score10-18" th:field="*{score10_18}"></span></td>
+            <td><span id="scoreOut" th:field="*{scoreOut}"></span></td>
             <td><span id="score" th:field="*{score}"></span></td>
         </tr>
         <tr>
@@ -126,7 +126,7 @@
             <td><input tabindex=18 class="round" type="text" id="pat16" th:field="*{patHole16}"></td>
             <td><input tabindex=19 class="round" type="text" id="pat17" th:field="*{patHole17}"></td>
             <td><input tabindex=20 class="round" type="text" id="pat18" th:field="*{patHole18}"></td>
-            <td><span id="pat10-18" th:field="*{pat10_18}"></span></td>
+            <td><span id="patOut" th:field="*{patOut}"></span></td>
             <td><span id="pat" th:field="*{pat}"></span></td>
         </tr>
         </tbody>

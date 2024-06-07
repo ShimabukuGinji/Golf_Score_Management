@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>メニュー画面</title>
@@ -7,10 +7,13 @@
 </head>
 <body>
 <th:block th:insert="common/header"></th:block>
-<h1>ラウンド登録確認</h1>
-<form action="" method="post">
-    <p>コース：[[ ${course.name} ]]</p>
-    <p>IN</p>
+<h1>ラウンド登録</h1>
+<form th:action="@{__${score.id}__/delete}" method="post">
+    <div class="caption">
+        <label>コース：[[ ${course.name} ]]</label><br>
+        <label>プレイ日:[[ ${score.playDate} ]]</label>
+    </div>
+    <div class="caption"><p>IN　<span class="error">[[ ${error} ]]</span></p></div>
     <table>
         <thead>
         <tr>
@@ -33,25 +36,25 @@
             <td><span class="round"></span></td>
         </tr>
         <tr>
-            <td>スコア</td>
-            <th th:each="round:${rounds1}" th:text="${round.score}"></th>
-            <td><span id="score1-9" th:text="${score1-9}"></span></td>
+            <td >スコア</td>
+            <td th:each="in:${holeIn}" th:text="${in.score}" th:id="@{score__${in.bunker}__}"></td>
+            <td><span id="scoreIn" th:field="*{scoreIn}"></span></td>
             <td></td>
         </tr>
         <tr>
-            <td>パット</td>
-            <th th:each="round:${rounds1}" th:text="${round.patts}"></th>
-            <td><span id="pat1-9" th:text="${pat1-9}"></span></td>
+            <td >パット</td>
+            <td th:each="in:${holeIn}" th:text="${in.patts}" th:id="@{pat__${in.bunker}__}"></td>
+            <td><span id="patIn" th:field="*{patIn}"></span></td>
             <td></td>
         </tr>
         </tbody>
     </table>
     <br>
-    <p>OUT</p>
+    <div class="caption"><p>OUT</p></div>
     <table>
         <thead>
         <tr>
-            <th th:each="hole:${holeNo1}" th:text="${hole}"></th>
+            <th th:each="hole:${holeNo2}" th:text="${hole}"></th>
         </tr>
         </thead>
         <tbody>
@@ -70,25 +73,26 @@
             <td><span class="round" id="par_all"></span>72</td>
         </tr>
         <tr>
-            <td>スコア</td>
-            <th th:each="round:${rounds2}" th:text="${round.score}"></th>
-            <td><span id="score10-18" th:text="${score10-18}"></span></td>
-            <td><span id="score" th:text="${score}"></span></td>
+            <td >スコア</td>
+            <td th:each="out:${holeOut}" th:text="${out.score}" th:id="@{score__${out.bunker}__}"></td>
+            <td><span id="scoreOut" th:field="*{scoreOut}"></span></td>
+            <td><span id="score" th:field="*{score}"></span></td>
         </tr>
         <tr>
-            <td>パット</td>
-            <th th:each="round:${rounds2}" th:text="${round.patts}"></th>
-            <td><span id="pat10-18" th:text="${pat10-18}"></span></td>
-            <td><span id="pat" th:text="${pat}"></span></td>
+            <td >パット</td>
+            <td th:each="out:${holeOut}" th:text="${out.patts}" th:id="@{pat__${out.bunker}__}"></td>
+            <td><span id="patOut" th:field="*{patOut}"></span></td>
+            <td><span id="pat" th:field="*{pat}"></span></td>
         </tr>
         </tbody>
     </table>
     <div class="btns">
-        <button type="button" onclick="openModal()" class="basic-btn">登録</button>
+        <button type="button" onclick="openModal()" class="basic-btn">削除</button>
+        <input type="button" th:onclick="@{location.href='__${score.id}__/update'}" value="編集" class="basic-btn">
         <input type="button" onclick="back()" value="戻る" class="cancel-btn">
     </div>
     <div id="modal">
-        <p class="modal-message">登録しますか？</p>
+        <p class="modal-message">削除しますか？</p>
         <div class="btns">
             <button type="submit" name="insert" id="register-btn" class="basic-btn">登録</button>
             <button type="button" onclick="closeModal()" class="cancel-btn">キャンセル</button>
@@ -96,6 +100,7 @@
     </div>
 </form>
 <div id="fadeLayer"></div>
+<script src="/js/total.js"></script>
 <script src="/js/commons.js"></script>
 </body>
 </html>

@@ -9,26 +9,35 @@
 <th:block th:insert="common/header"></th:block>
 <div id="menu">
     <div class="flex">
-        <div class="main"><div class="child">98.2<br>平均スコア</div></div>
-        <div class="main"><div class="child">95<br>ベストスコア</div></div>
-        <div class="main"><div class="child">34<br>平均パット数</div></div>
+        <div class="main"><div class="child"><span class="avg">[[ ${menu.avgscore} ]]</span><br>平均スコア</div></div>
+        <div class="main"><div class="child"><span class="best">[[ ${menu.bestscore} ]]</span><br>ベストスコア</div></div>
+        <div class="main"><div class="child"><span class="avg">[[ ${menu.avgpat} ]]</span><br>平均パット数</div></div>
     </div>
 </div>
 <div>
     <div class="caption"><p>直近5ラウンド</p></div>
     <table>
+        <thead>
+        <tr>
+            <th width="30%">コース名</th>
+            <th width="20%">プレイ日</th>
+            <th width="15%">スコア</th>
+            <th width="15%">パット数</th>
+            <th width="20%">ラウンド情報</th>
+        </tr>
+        </thead>
         <tbody>
         <tr th:each="product : ${rounds}" >
             <td th:text="${product.name}"></td>
             <td th:text="${product.playDate}"></td>
             <td th:text="${product.score}"></td>
             <td th:text="${product.patts}"></td>
-            <td><a class="detail_btn" href="">詳細</a></td>
+            <td><a class="detail_btn" th:href="@{detail/__${product.id}__}">詳細</a></td>
         </tr>
         </tbody>
     </table>
     <div class="center">
-        <a class="basic-btn regist" href="/Golf_Manager/user/detail">ラウンド履歴</a>
+        <a class="basic-btn regist" href="/Golf_Manager/user/round-all">ラウンド履歴</a>
         <a class="basic-btn regist" href="/Golf_Manager/user/insert">ラウンド登録</a>
     </div>
 </div>

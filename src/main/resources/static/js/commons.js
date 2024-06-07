@@ -65,11 +65,11 @@ function calculation() {
     let pat2 = pnum10+pnum11+pnum12+pnum13+pnum14+pnum15+pnum16+pnum17+pnum18;
     let pat = pat1+pat2;
 
-    document.getElementById('score1-9').textContent = score1;
-    document.getElementById('score10-18').textContent = score2;
+    document.getElementById('scoreIn').textContent = score1;
+    document.getElementById('scoreOut').textContent = score2;
     document.getElementById('score').textContent = score;
-    document.getElementById('pat1-9').textContent = pat1;
-    document.getElementById('pat10-18').textContent = pat2;
+    document.getElementById('patIn').textContent = pat1;
+    document.getElementById('patOut').textContent = pat2;
     document.getElementById('pat').textContent = pat;
 }
 
@@ -105,4 +105,6 @@ document.getElementById('select').addEventListener('change', () => {
         })
     })
 });
+
+
 
