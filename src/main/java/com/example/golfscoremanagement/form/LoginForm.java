@@ -9,6 +9,6 @@ public class LoginForm {
     @NotEmpty(message = "IDは必須です")
     private String loginId;
 
-    @NotEmpty(message = "PASSは必須です")
+    @NotEmpty(message = "パスワードは必須です")
     private String password;
 }

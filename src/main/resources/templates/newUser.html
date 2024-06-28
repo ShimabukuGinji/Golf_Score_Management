@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン</title>
+    <link href="/css/user.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="registration-container">
+    <h2>新規登録</h2>
+    <form id="registrationForm" action="" method="post" th:object="${newUserForm}">
+        <div class="form-group">
+            <p class="error">[[ ${successOrError} ]]</p>
+            <label for="name">1.名前</label>
+            <input type="text" id="name" name="name" th:field="*{name}">
+            <div class="error" th:each="error: ${#fields.errors('name')}">
+                [[ ${error} ]]
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="displayName">2.ニックネーム</label>
+            <input type="text" id="displayName" name="displayName" th:field="*{displayName}">
+            <div class="error" th:each="error: ${#fields.errors('displayName')}">
+                [[ ${error} ]]
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="loginId">3.ログインID</label>
+            <input type="text" id="loginId" name="loginId" th:field="*{loginId}">
+            <div class="error" th:each="error: ${#fields.errors('loginId')}">
+                [[ ${error} ]]
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">4.パスワード</label>
+            <input type="password" id="password" name="password" th:field="*{password}">
+            <div class="error" th:each="error: ${#fields.errors('password')}">
+                [[ ${error} ]]
+            </div>
+        </div>
+        <br>
+        <button class="login-btn" type="submit">新規登録</button>
+    </form>
+</div>
+</body>
+</html>

@@ -10,13 +10,13 @@ import lombok.Data;
 public class RoundForm {
 
     //日付
-    @NotEmpty(message = "PASSは必須です")
+    @NotEmpty
     private String playDateYear;
 
-    @NotEmpty(message = "PASSは必須です")
+    @NotEmpty
     private String playDateMonth;
 
-    @NotEmpty(message = "PASSは必須です")
+    @NotEmpty
     private String playDateDay;
 
     //コース

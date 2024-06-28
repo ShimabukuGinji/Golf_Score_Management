@@ -127,15 +127,33 @@ a {
 }
 
 .custom-btn {
-  border: none;
-  border-radius: 5px;
-  background-color: #004a94;
-  padding: auto;
-  line-height: 2;
-  padding: 10px;
-  cursor: pointer;
-  color: white;
+  width: 273px;
+  height: 35px;
+  border-radius:0px;
   margin: 10px;
+  margin-bottom:20px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+}
+
+.custom-btn:hover {
+  background-color:#417ebb;
+}
+
+.new-user-btn {
+  width: 200px;
+  height: 35px;
+  border-radius:0px;
+  margin: 10px;
+  margin-bottom:20px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+}
+
+.new-user-btn:hover {
+  background-color:#417ebb;
 }
 
 .customise-btn {
@@ -158,10 +176,6 @@ a {
   width: 20px;
   vertical-align: middle;
   margin: 0 5px 5px 0;
-}
-
-.custom-btn:hover {
-  background-color:#417ebb;
 }
 
 .custom-btn img {
@@ -260,7 +274,7 @@ a {
 /** ログイン画面 **/
 .login-form {
   width: 400px;
-  height: 420px;
+  height: 450px;
   position: absolute;
 	top: 50%;
 	left: 50%;
@@ -270,11 +284,25 @@ a {
   background-color: white;
 }
 
+/** 新地登録画面 **/
+.new-user-form {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 0px;
+  background-color: white;
+}
+
 .base-input {
   width: 250px;
   height: 15px;
   padding:8px 10px;
-  border-radius:10px;
+  border-radius:0px;
+  margin: 10px;
 }
 
 .login-body {

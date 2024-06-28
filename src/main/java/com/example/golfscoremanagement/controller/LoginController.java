@@ -1,6 +1,7 @@
 package com.example.golfscoremanagement.controller;
 
 import com.example.golfscoremanagement.form.LoginForm;
+import com.example.golfscoremanagement.form.NewUserForm;
 import com.example.golfscoremanagement.service.IRoundService;
 import com.example.golfscoremanagement.service.IUserService;
 import jakarta.servlet.http.HttpSession;
@@ -27,14 +28,14 @@ public class LoginController {
 
     @GetMapping("Golf_Manager/index")
     public String index(@ModelAttribute("loginForm") LoginForm loginForm){
-        return "index";
+        return "index2";
     }
 
     @PostMapping("Golf_Manager/index")
     public String login(@Validated @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model){
         //バリデーション
         if (bindingResult.hasErrors()) {
-            return "index";
+            return "index2";
         }
         var user = userService.findLogin(loginForm.getLoginId(), loginForm.getPassword());
         if (user != null) {
@@ -42,7 +43,29 @@ public class LoginController {
             return "redirect:/Golf_Manager/user/menu";
         }
         model.addAttribute("error", "IDまたはパスワードが不正です");
-        return "index";
+        return "index2";
+    }
+
+    @GetMapping("Golf_Manager/new-user")
+    public String newUser(@ModelAttribute("newUserForm") NewUserForm newUserForm, Model model){
+        return "newUser";
+    }
+
+    @PostMapping("Golf_Manager/new-user")
+    public String newUser(@Validated @ModelAttribute("newUserForm") NewUserForm newUserForm, BindingResult bindingResult, Model model){
+        //バリデーション
+        if (bindingResult.hasErrors()) {
+            return "newUser";
+        } else {
+            try {
+                userService.insert(newUserForm.getName(), newUserForm.getDisplayName(), newUserForm.getLoginId(), newUserForm.getPassword());
+                model.addAttribute("successOrError", "ユーザー情報を登録しました");
+                return "newUser";
+            } catch (NullPointerException e) {
+                model.addAttribute("successOrError", "登録に失敗しました");
+                return "newUser";
+            }
+        }
     }
 
     @GetMapping("Golf_Manager/user/menu")

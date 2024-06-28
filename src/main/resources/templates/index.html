@@ -12,12 +12,12 @@
       <form action="" method="post" th:object="${loginForm}">
           <fieldset>
               <div class="cp_iptxt">
+                  <p class="error">[[ ${error} ]]</p>
                   <input class="base-input" type="text" th:field="*{loginId}" name="loginId" placeholder="ID">
                   <div class="error" th:each="error: ${#fields.errors('loginId')}">
                       [[ ${error} ]]
                   </div>
               </div>
-
               <div>
                   <input class="base-input" type="password" th:field="*{password}" name="pass" placeholder="パスワード">
                   <div class="error" th:each="error: ${#fields.errors('password')}">
@@ -31,9 +31,7 @@
           <hr id="borderLine">
       </form>
       <form>
-          <button id="new-btn" class="customise-btn" type="submit">
-              新規登録
-          </button>
+          <input type="button" th:onclick="@{location.href='new-user'}" value="新規登録" id="new-btn" class="new-user-btn">
       </form>
   </div>
 </body>

@@ -22,7 +22,11 @@ public class UserService implements IUserService {
 
     @Override
     public User findLogin(String loginId, String loginPass){
-        var user = userRepository.findLogin(loginId, loginPass);
-        return user;
+        return userRepository.findLogin(loginId, loginPass);
+    }
+
+    @Override
+    public int insert(String name, String displayId, String loginId, String password){
+        return userRepository.insert(name, displayId, loginId, password);
     }
 }

@@ -33,4 +33,17 @@ public class UserRepository implements IUserRepository {
                 new DataClassRowMapper<>(User.class));
         return list.isEmpty() ? null : list.get(0);
     }
+
+    @Override
+    public int insert(String name, String displayId, String loginId, String password) {
+        var param = new MapSqlParameterSource();
+        param.addValue("name", name);
+        param.addValue("displayId", displayId);
+        param.addValue("loginId", loginId);
+        param.addValue("password", password);
+        return jdbcTemplate.update(
+                "insert into users(name, display_name, login_id, password, role) values(:name, :displayId, :loginId, :password, 2);"
+                ,param);
+    }
 }
+

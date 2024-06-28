@@ -82,26 +82,25 @@ document.getElementById('select').addEventListener('change', () => {
     fetch(`/course-per?courseId=${courseId}`)
     .then(res => {
         res.json()
-            .then(data => {
-            document.getElementById('par_hole1').textContent = data.parHole1;
-            document.getElementById('par_hole2').textContent = data.parHole2;
-            document.getElementById('par_hole3').textContent = data.parHole3;
-            document.getElementById('par_hole4').textContent = data.parHole4;
-            document.getElementById('par_hole5').textContent = data.parHole5;
-            document.getElementById('par_hole6').textContent = data.parHole6;
-            document.getElementById('par_hole7').textContent = data.parHole7;
-            document.getElementById('par_hole8').textContent = data.parHole8;
-            document.getElementById('par_hole9').textContent = data.parHole9;
-            document.getElementById('par_hole10').textContent = data.parHole10;
-            document.getElementById('par_hole11').textContent = data.parHole11;
-            document.getElementById('par_hole12').textContent = data.parHole12;
-            document.getElementById('par_hole13').textContent = data.parHole13;
-            document.getElementById('par_hole14').textContent = data.parHole14;
-            document.getElementById('par_hole15').textContent = data.parHole15;
-            document.getElementById('par_hole16').textContent = data.parHole16;
-            document.getElementById('par_hole17').textContent = data.parHole17;
-            document.getElementById('par_hole18').textContent = data.parHole18;
-
+        .then(data => {
+        document.getElementById('par_hole1').textContent = data.parHole1;
+        document.getElementById('par_hole2').textContent = data.parHole2;
+        document.getElementById('par_hole3').textContent = data.parHole3;
+        document.getElementById('par_hole4').textContent = data.parHole4;
+        document.getElementById('par_hole5').textContent = data.parHole5;
+        document.getElementById('par_hole6').textContent = data.parHole6;
+        document.getElementById('par_hole7').textContent = data.parHole7;
+        document.getElementById('par_hole8').textContent = data.parHole8;
+        document.getElementById('par_hole9').textContent = data.parHole9;
+        document.getElementById('par_hole10').textContent = data.parHole10;
+        document.getElementById('par_hole11').textContent = data.parHole11;
+        document.getElementById('par_hole12').textContent = data.parHole12;
+        document.getElementById('par_hole13').textContent = data.parHole13;
+        document.getElementById('par_hole14').textContent = data.parHole14;
+        document.getElementById('par_hole15').textContent = data.parHole15;
+        document.getElementById('par_hole16').textContent = data.parHole16;
+        document.getElementById('par_hole17').textContent = data.parHole17;
+        document.getElementById('par_hole18').textContent = data.parHole18;
         })
     })
 });

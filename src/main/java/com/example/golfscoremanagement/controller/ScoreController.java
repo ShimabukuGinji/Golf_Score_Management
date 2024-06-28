@@ -42,11 +42,6 @@ public class ScoreController {
     private List<Hole> round2;
     private final List<String> holeNo1 = List.of("ホール", "Hole1", "Hole2", "Hole3", "Hole4", "Hole5", "Hole6", "Hole7", "Hole8", "Hole9", "IN", "");
     private final List<String> holeNo2 = List.of("ホール", "Hole10", "Hole11", "Hole12", "Hole13", "Hole14", "Hole15", "Hole16", "Hole17", "Hole18", "OUT", "Total");
-    private final List<String> scoreNo1 = List.of("score1", "score2", "score3", "score4", "score5", "score6", "score7", "score8", "score9");
-    private final List<String> scoreNo2 = List.of("score10", "score11", "score12", "score13", "score14", "score15", "score16", "score17", "score18");
-    private final List<String> patNo1 = List.of("pat1", "pat2", "pat3", "pat4", "pat5", "pat6", "pat7", "pat8", "pat9");
-    private final List<String> patNo2 = List.of("pat10", "pat11", "pat12", "pat13", "pat14", "pat15", "pat16", "pat17", "pat18");
-    private boolean flag;
 
     private ScoreController() {
         for (var i = 1900; i <= 2100; i++) {
@@ -62,7 +57,6 @@ public class ScoreController {
         this.round1 = new ArrayList<>();
         this.round2 = new ArrayList<>();
 
-        this.flag = true;
     }
 
     @GetMapping("Golf_Manager/user/insert")
